@@ -1,32 +1,80 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
-import { useEffect } from 'react';
-import { Platform } from 'react-native';
+// app/_layout.js — versão SEM precisar de arquivos de imagem
 
-export default function TabLayout() {
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import { View, Text } from "react-native";
 
-  useEffect(()=>{
-    Platform.OS === "web" ? document.title = "DDM 2025/2" : null 
-  }, [])
-  
+// Importe as telas com os nomes corretos (hífen)
+import Index from "./index";
+import TemaLivre from "./tema-livre"; // ✅ nome do arquivo: tema-livre.js
+
+const Tab = createBottomTabNavigator();
+
+export default function RootLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
-      <Tabs.Screen
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "#0A1A2F",
+          borderTopWidth: 0,
+          height: 60,
+          paddingBottom: 8,
+        },
+        tabBarActiveTintColor: "#2196F3",
+        tabBarInactiveTintColor: "#BBDEFB",
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: "600",
+        },
+      }}
+    >
+      <Tab.Screen
         name="index"
+        component={Index}
         options={{
-          title: 'Início',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-          headerShown: false,
+          title: "Início",
+          tabBarIcon: ({ color }) => (
+            <View
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 4,
+                backgroundColor: color,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#0A1A2F", fontWeight: "bold", fontSize: 12 }}>
+                I
+              </Text>
+            </View>
+          ),
         }}
       />
-      <Tabs.Screen
-        name="aboutme"
+      <Tab.Screen
+        name="tema-livre" // ✅ nome exato do arquivo (sem .js)
+        component={TemaLivre}
         options={{
-          title: 'Sobre Mim',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
-          headerShown: false,
+          title: "Tema Livre",
+          tabBarIcon: ({ color }) => (
+            <View
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 4,
+                backgroundColor: color,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#0A1A2F", fontWeight: "bold", fontSize: 10 }}>
+                TL
+              </Text>
+            </View>
+          ),
         }}
       />
-    </Tabs>
+    </Tab.Navigator>
   );
 }
