@@ -27,7 +27,7 @@ export default function TemaLivre() {
       style={styles.container}
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
-      bounces={false} // Remove o "bounce" para melhor performance
+      bounces={false}
       nestedScrollEnabled={true}
     >
       {/* Título */}
@@ -97,7 +97,7 @@ export default function TemaLivre() {
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://images.hln.be/ODUwYjk4NTk3NjQwZDNmYmEyOGEvZGlvLzI2MjU4NzI0OC9maWxsLzEzNDkvOTAw/ferre-reggers")}
+          onPress={() => openLink("https://images.hln.be/ODUwYjk4NTk3NjQwZDNmYmEyOGEvZGlvLzI2MjU4NzI0OC9maWxsLzEzNDkvOTAwL2ZlcnJlLXJlZ2dlcnM=")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   playerName: {
     fontSize: 20,
     fontWeight: "800",
-    color: "#FF5252", // vermelho para destaque (sua preferência)
+    color: "#FF5252",
     marginBottom: 12,
   },
   playerInfo: {
