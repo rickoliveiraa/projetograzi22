@@ -33,7 +33,18 @@ export default function TemaLivre() {
       {/* Título */}
       <Text style={styles.title}>VOLEIBOL: O ESPORTE DA ALTURA, VELOCIDADE E UNIÃO</Text>
 
-      {/* Introdução */}
+      {/* História do Vôlei — versão aprimorada */}
+      <Text style={styles.paragraph}>
+        Em 1895, numa academia da Associação Cristã de Moços (ACM) em Holyoke, Massachusetts, o professor de educação física William G. Morgan criou um esporte revolucionário. 
+        Insatisfeito com a intensidade do basquete e buscando uma alternativa para homens mais velhos, ele combinou elementos do tênis (a rede), do handebol (o arremesso) e do badminton (o ritmo contínuo) — e assim nasceu o “mintonette”.
+      </Text>
+      <Text style={styles.paragraph}>
+        Rapidamente, o nome foi trocado por “volley ball” (bola sobre a rede), e as regras se consolidaram: três toques por equipe, proibição de segurar a bola, e um jogo coletivo onde nenhum jogador pode dominar sozinho. 
+        O esporte atravessou oceanos, ganhou as quadras do mundo e, em 1964, tornou-se parte dos Jogos Olímpicos em Tóquio. 
+        Hoje, com mais de 800 milhões de praticantes em 220 países, o voleibol é símbolo de união, técnica e superação — um jogo onde o coletivo sempre vence o individual.
+      </Text>
+
+      {/* Introdução original */}
       <Text style={styles.paragraph}>
         O voleibol é um esporte global, dinâmico e coletivo, onde cada ponto é resultado de coordenação, técnica e espírito de equipe.
         Atualmente, duas seleções dominam o cenário internacional: a França no masculino e a Itália no feminino.
@@ -77,7 +88,7 @@ export default function TemaLivre() {
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://www.volleynews.it/wp-content/uploads/2022/08/Alessandro-Michieletto-Italia.jpg")}
+          onPress={() => openLink("https://www.volleynews.it/wp-content/uploads/2022/08/Alessandro-Michieletto-Italia.jpg    ")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
@@ -97,7 +108,7 @@ export default function TemaLivre() {
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://images.hln.be/ODUwYjk4NTk3NjQwZDNmYmEyOGEvZGlvLzI2MjU4NzI0OC9maWxsLzEzNDkvOTAwL2ZlcnJlLXJlZ2dlcnM=")}
+          onPress={() => openLink("https://images.hln.be/ODUwYjk4NTk3NjQwZDNmYmEyOGEvZGlvLzI2MjU4NzI0OC9maWxsLzEzNDkvOTAwL2ZlcnJlLXJlZ2dlcnM=    ")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
@@ -117,7 +128,7 @@ export default function TemaLivre() {
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://midianinja.org/wp-content/uploads/2024/07/Foto_-FIBV-1-jpg.webp")}
+          onPress={() => openLink("https://midianinja.org/wp-content/uploads/2024/07/Foto_-FIBV-1-jpg.webp    ")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
@@ -137,7 +148,7 @@ export default function TemaLivre() {
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://img.nsctotal.com.br/wp-content/uploads/2025/07/Antropova-4.jpg")}
+          onPress={() => openLink("https://img.nsctotal.com.br/wp-content/uploads/2025/07/Antropova-4.jpg    ")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>

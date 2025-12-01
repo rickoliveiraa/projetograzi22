@@ -1,4 +1,4 @@
-/* CÓDIGO MELHORADO COM ANIMAÇÃO DE VÔLEI */
+/* CÓDIGO MELHORADO SEM ANIMAÇÃO DA BOLINHA BRANCA */
 import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
@@ -20,9 +20,6 @@ export default function App() {
   const fade = useRef(new Animated.Value(0)).current;
   const translate = useRef(new Animated.Value(30)).current;
   const buttonPulse = useRef(new Animated.Value(1)).current;
-
-  // 🔵 animação bola de vôlei atravessando a imagem
-  const bolaX = useRef(new Animated.Value(-40)).current;
 
   useEffect(() => {
     Animated.parallel([
@@ -53,20 +50,10 @@ export default function App() {
       ])
     ).start();
 
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(bolaX, {
-          toValue: 250,
-          duration: 2000,
-          useNativeDriver: true,
-        }),
-        Animated.timing(bolaX, {
-          toValue: -40,
-          duration: 0,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
+    // ⚠️ REMOVIDO: Animação da bola branca
+    // const bolaX = useRef(new Animated.Value(-40)).current;
+    // Animated.loop(...).start(); → removido
+
   }, []);
 
   function entrar() {
@@ -76,19 +63,12 @@ export default function App() {
   return (
     <LinearGradient colors={["#061625", "#0E223A", "#15395C"]} style={styles.fundo}>
       <Animated.View style={[styles.container, { opacity: fade, transform: [{ translateY: translate }] }]}>
-
+        
         {/* CARD DA IMAGEM */}
         <View style={styles.imageCard}>
           <Image source={fotoLocal} style={styles.img} />
           <View style={styles.glassOverlay} />
-
-          {/* 🔵 Bola animada */}
-          <Animated.View
-            style={[
-              styles.bola,
-              { transform: [{ translateX: bolaX }] },
-            ]}
-          />
+          {/* 🔵 BOLA REMOVIDA */}
         </View>
 
         {/* TÍTULO */}
@@ -96,13 +76,13 @@ export default function App() {
 
         {/* TEXTOS MAIS BONITOS E ORGANIZADOS */}
         <Text style={styles.paragraph}>
-          O vôlei é coordenação, ritmo e inteligência. Um esporte onde cada movimento
-          se conecta com o próximo, criando uma dança coletiva dentro da quadra.
+          O vôlei é um esporte entre duas equipes separadas por uma rede, em que cada lado tenta fazer a bola tocar o chão do adversário usando até três toques por jogada.
+          O jogo começa com o saque e segue em ritmo rápido, com ataques, bloqueios e defesas.
         </Text>
 
         <Text style={styles.paragraph}>
-          Presente em mais de 800 milhões de vidas, o vôlei continua evoluindo —
-          e o Brasil permanece como uma das maiores forças dessa história.
+         Cada posição tem uma função importante, e a estratégia coletiva é essencial. A partida é dividida em sets até 25 pontos, e vence quem fechar três sets. 
+         É um esporte ágil, técnico e cheio de momentos emocionantes.
         </Text>
 
         {/* BOTÃO */}
@@ -160,19 +140,19 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.08)",
   },
 
-  /* 🔵 bola animada */
-  bola: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    backgroundColor: "#fff",
-    position: "absolute",
-    top: 20,
-    elevation: 6,
-    shadowColor: "#fff",
-    shadowOpacity: 0.6,
-    shadowRadius: 8,
-  },
+  /* 🔵 bola animada — REMOVIDA */
+  // bola: {
+  //   width: 26,
+  //   height: 26,
+  //   borderRadius: 13,
+  //   backgroundColor: "#fff",
+  //   position: "absolute",
+  //   top: 20,
+  //   elevation: 6,
+  //   shadowColor: "#fff",
+  //   shadowOpacity: 0.6,
+  //   shadowRadius: 8,
+  // },
 
   title: {
     fontSize: 40,
