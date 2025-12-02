@@ -76,13 +76,12 @@ export default function App() {
 
         {/* TEXTOS MAIS BONITOS E ORGANIZADOS */}
         <Text style={styles.paragraph}>
-          O vôlei é um esporte entre duas equipes separadas por uma rede, em que cada lado tenta fazer a bola tocar o chão do adversário usando até três toques por jogada.
-          O jogo começa com o saque e segue em ritmo rápido, com ataques, bloqueios e defesas.
-        </Text>
+          O vôlei é um esporte entre duas equipes separadas por uma rede, em que cada lado tenta fazer a bola tocar o chão do adversário usando até três toques por jogada. 
+          O jogo começa com o saque e segue em ritmo rápido, com ataques, bloqueios e defesas. </Text>
 
         <Text style={styles.paragraph}>
-         Cada posição tem uma função importante, e a estratégia coletiva é essencial. A partida é dividida em sets até 25 pontos, e vence quem fechar três sets. 
-         É um esporte ágil, técnico e cheio de momentos emocionantes.
+        A partida é dividida em sets até 25 pontos, e vence quem fechar três sets.
+        É um esporte ágil, técnico e cheio de momentos emocionantes.
         </Text>
 
         {/* BOTÃO */}

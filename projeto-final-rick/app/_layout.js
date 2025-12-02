@@ -1,12 +1,13 @@
-// app/_layout.js — versão SEM precisar de arquivos de imagem
+// app/_layout.js
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { View, Text } from "react-native";
 
-// Importe as telas com os nomes corretos (hífen)
+// Importe as telas com os nomes exatos dos arquivos (sem .js)
 import Index from "./index";
-import TemaLivre from "./tema-livre"; // ✅ nome do arquivo: tema-livre.js
+import TemaLivre from "./tema-livre";        // arquivo: tema-livre.js
+import TemaObrigatorio from "./tema-obrigatorio"; // arquivo: tema-obrigatorio.js
 
 const Tab = createBottomTabNavigator();
 
@@ -29,6 +30,7 @@ export default function RootLayout() {
         },
       }}
     >
+      {/* Aba: Início */}
       <Tab.Screen
         name="index"
         component={Index}
@@ -52,8 +54,10 @@ export default function RootLayout() {
           ),
         }}
       />
+
+      {/* Aba: Tema Livre */}
       <Tab.Screen
-        name="tema-livre" // ✅ nome exato do arquivo (sem .js)
+        name="tema-livre"
         component={TemaLivre}
         options={{
           title: "Tema Livre",
@@ -70,6 +74,31 @@ export default function RootLayout() {
             >
               <Text style={{ color: "#0A1A2F", fontWeight: "bold", fontSize: 10 }}>
                 TL
+              </Text>
+            </View>
+          ),
+        }}
+      />
+
+      {/* Aba: Tema Obrigatório — NOVA */}
+      <Tab.Screen
+        name="tema-obrigatorio"
+        component={TemaObrigatorio}
+        options={{
+          title: "Tema Obrigatório",
+          tabBarIcon: ({ color }) => (
+            <View
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 4,
+                backgroundColor: color,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "#0A1A2F", fontWeight: "bold", fontSize: 10 }}>
+                TO
               </Text>
             </View>
           ),
