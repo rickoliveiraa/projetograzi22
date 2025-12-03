@@ -9,13 +9,17 @@ import {
   Image,
   Linking,
   TouchableOpacity,
+  Platform,
+  Dimensions,
 } from "react-native";
 
-// Importar as imagens dos jogadores
 const michieletto = require("./assets/players/mich.jpg");
 const reggers = require("./assets/players/reggers.jpg");
 const gabi = require("./assets/players/gabi.webp");
 const antropova = require("./assets/players/antro.jpg");
+
+const { width } = Dimensions.get("window");
+const isWeb = Platform.OS === "web";
 
 export default function TemaLivre() {
   const openLink = (url) => {
@@ -25,32 +29,32 @@ export default function TemaLivre() {
   return (
     <ScrollView
       style={styles.container}
-      contentContainerStyle={styles.content}
+      contentContainerStyle={[
+        styles.content,
+        { paddingHorizontal: isWeb ? Math.min(40, width * 0.1) : 20 }
+      ]}
       showsVerticalScrollIndicator={false}
       bounces={false}
       nestedScrollEnabled={true}
     >
-      {/* Título */}
       <Text style={styles.title}>VOLEIBOL: O ESPORTE DA ALTURA, VELOCIDADE E UNIÃO</Text>
 
-      {/* História do Vôlei — versão aprimorada */}
       <Text style={styles.paragraph}>
         Em 1895, numa academia da Associação Cristã de Moços (ACM) em Holyoke, Massachusetts, o professor de educação física William G. Morgan criou um esporte revolucionário. 
         Insatisfeito com a intensidade do basquete e buscando uma alternativa para homens mais velhos, ele combinou elementos do tênis (a rede), do handebol (o arremesso) e do badminton (o ritmo contínuo) — e assim nasceu o “mintonette”.
       </Text>
+
       <Text style={styles.paragraph}>
         Rapidamente, o nome foi trocado por “volley ball” (bola sobre a rede), e as regras se consolidaram: três toques por equipe, proibição de segurar a bola, e um jogo coletivo onde nenhum jogador pode dominar sozinho. 
         O esporte atravessou oceanos, ganhou as quadras do mundo e, em 1964, tornou-se parte dos Jogos Olímpicos em Tóquio. 
         Hoje, com mais de 800 milhões de praticantes em 220 países, o voleibol é símbolo de união, técnica e superação — um jogo onde o coletivo sempre vence o individual.
       </Text>
 
-      {/* Introdução original */}
       <Text style={styles.paragraph}>
         O voleibol é um esporte global, dinâmico e coletivo, onde cada ponto é resultado de coordenação, técnica e espírito de equipe.
         Atualmente, duas seleções dominam o cenário internacional: a França no masculino e a Itália no feminino.
       </Text>
 
-      {/* Campeões Olímpicos e Mundiais */}
       <Text style={styles.sectionTitle}>CAMPEÕES MUNDIAIS E OLÍMPICOS (2024–2025)</Text>
 
       <View style={styles.card}>
@@ -58,7 +62,7 @@ export default function TemaLivre() {
         <Text style={styles.cardText}>
           • <Text style={styles.bold}>Campeão Olímpico (Paris 2024): </Text><Text style={styles.highlight}>França</Text>{'\n'}
           • <Text style={styles.bold}>Campeão Mundial (2025): </Text><Text style={styles.highlight}>Itália</Text>{'\n'}
-          • <Text style={styles.bold}>Vice-campeã Olímpica: </Text><Text style={styles.highlight}>Polônia</Text>{'\n'}
+          • <Text style={styles.bold}>Vice-campeã Olímpica (2024): </Text><Text style={styles.highlight}>Polônia</Text>{'\n'}
         </Text>
       </View>
 
@@ -67,14 +71,13 @@ export default function TemaLivre() {
         <Text style={styles.cardText}>
           • <Text style={styles.bold}>Campeã Olímpica (Paris 2024): </Text><Text style={styles.highlight}>Itália</Text>{'\n'}
           • <Text style={styles.bold}>Campeã Mundial (2025): </Text><Text style={styles.highlight}>Itália</Text>{'\n'}
-         • <Text style={styles.bold}>Vice-campeã Olímpica: </Text><Text style={styles.highlight}>Estados Unidos</Text>{'\n'}
+         • <Text style={styles.bold}>Vice-campeã Olímpica (2024): </Text><Text style={styles.highlight}>Estados Unidos</Text>{'\n'}
         </Text>
       </View>
 
-      {/* Atletas em Destaque */}
       <Text style={styles.sectionTitle}>ATLETAS EM DESTAQUE</Text>
 
-      {/* Alessandro Michieletto */}
+      {/* MICHIELETTO */}
       <View style={styles.playerCard}>
         <Image source={michieletto} style={styles.playerImage} />
         <Text style={styles.playerName}>Alessandro Michieletto</Text>
@@ -84,17 +87,17 @@ export default function TemaLivre() {
           • <Text style={styles.bold}>Altura: </Text><Text style={styles.highlight}>2,11 m</Text>{'\n'}
           • <Text style={styles.bold}>Clube atual: </Text><Text style={styles.highlight}>Itas Trentino</Text> (Itália){'\n'}
           • <Text style={styles.bold}>Posição: </Text><Text style={styles.highlight}>Ponteiro</Text>{'\n'}
-          • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Bi-Campeão Mundial pela Itália</Text>, <Text style={styles.highlight}>MVP Campeonato Mundial 2025, Melhor Ponteiro da VNL 2025, MVP da Série A1 italiana 2024/25. </Text>
+          • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Bi-Campeão Mundial pela Itália,</Text> <Text style={styles.highlight}>MVP Mundial 2025, Melhor Ponteiro VNL 2025, MVP A1 italiana 24/25.</Text>
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://www.volleynews.it/wp-content/uploads/2022/08/Alessandro-Michieletto-Italia.jpg    ")}
+          onPress={() => openLink("https://www.volleynews.it/wp-content/uploads/2022/08/Alessandro-Michieletto-Italia.jpg")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Ferre Reggers */}
+      {/* REGGERS */}
       <View style={styles.playerCard}>
         <Image source={reggers} style={styles.playerImage} />
         <Text style={styles.playerName}>Ferre Reggers</Text>
@@ -104,17 +107,17 @@ export default function TemaLivre() {
           • <Text style={styles.bold}>Altura: </Text><Text style={styles.highlight}>2,02 m</Text>{'\n'}
           • <Text style={styles.bold}>Clube atual: </Text><Text style={styles.highlight}>Allianz Milano</Text> (Itália){'\n'}
           • <Text style={styles.bold}>Posição: </Text><Text style={styles.highlight}>Oposto</Text>{'\n'}
-          • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Bronze no Campeonato Europeu U21 2020</Text>, <Text style={styles.highlight}>Melhor oposto do Europeu 2020</Text>.
+          • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Bronze Europeu U21 2020,</Text> <Text style={styles.highlight}>Melhor Oposto do Europeu 2020.</Text>
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://images.hln.be/ODUwYjk4NTk3NjQwZDNmYmEyOGEvZGlvLzI2MjU4NzI0OC9maWxsLzEzNDkvOTAwL2ZlcnJlLXJlZ2dlcnM=    ")}
+          onPress={() => openLink("https://images.hln.be/ODUwYjk4NTk3NjQwZDNmYmEyOGEvZGlvLzI2MjU4NzI0OC9maWxsLzEzNDkvOTAwL2ZlcnJlLXJlZ2dlcnM=")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Gabi Guimarães */}
+      {/* GABI */}
       <View style={styles.playerCard}>
         <Image source={gabi} style={styles.playerImage} />
         <Text style={styles.playerName}>Gabi Guimarães</Text>
@@ -122,39 +125,38 @@ export default function TemaLivre() {
           • <Text style={styles.bold}>Nacionalidade: </Text><Text style={styles.highlight}>Brasil</Text>{'\n'}
           • <Text style={styles.bold}>Idade: </Text><Text style={styles.highlight}>31 anos</Text> (nascida em 19/05/1994){'\n'}
           • <Text style={styles.bold}>Altura: </Text><Text style={styles.highlight}>1,80 m</Text>{'\n'}
-          • <Text style={styles.bold}>Clube atual: </Text><Text style={styles.highlight}>Imoco Conegliano</Text> (Itália){'\n'}
+          • <Text style={styles.bold}>Clube atual: </Text><Text style={styles.highlight}>Imoco Conegliano</Text>{'\n'}
           • <Text style={styles.bold}>Posição: </Text><Text style={styles.highlight}>Ponteira</Text>{'\n'}
-          • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Vice-campeã Olímpica Tóquio 2021, Medalhista de Bronze Paris 2024</Text>, <Text style={styles.highlight}>Melhor Ponteira do Campeonato Mundial 2025, Melhor Ponteira da VNL 2025, Melhor Ponteira das Olimpíadas de Paris 2024, MVP da Série A1 italiana 2024/25.</Text>
-        </Text>
-        <TouchableOpacity
+           • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Vice-campeã Olímpica Tóquio 2021, Medalhista de Bronze Paris 2024,</Text> <Text style={styles.highlight}>Melhor Ponteira do Campeonato Mundial 2025, Melhor Ponteira da VNL 2025, Melhor Ponteira das Olimpíadas de Paris 2024, MVP da Série A1 italiana 2024/25.</Text>
+           </Text>
+           <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://midianinja.org/wp-content/uploads/2024/07/Foto_-FIBV-1-jpg.webp    ")}
+          onPress={() => openLink("https://midianinja.org/wp-content/uploads/2024/07/Foto_-FIBV-1-jpg.webp")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Ekaterina Antropova */}
+      {/* ANTROPOVA */}
       <View style={styles.playerCard}>
         <Image source={antropova} style={styles.playerImage} />
         <Text style={styles.playerName}>Ekaterina Antropova</Text>
         <Text style={styles.playerInfo}>
-          • <Text style={styles.bold}>Nacionalidade: </Text><Text style={styles.highlight}>Itália</Text> (nascida na Rússia){'\n'}
+          • <Text style={styles.bold}>Nacionalidade: </Text><Text style={styles.highlight}>Itália/Rússia/Islândia</Text>{'\n'}
           • <Text style={styles.bold}>Idade: </Text><Text style={styles.highlight}>22 anos</Text> (nascida em 19/03/2003){'\n'}
           • <Text style={styles.bold}>Altura: </Text><Text style={styles.highlight}>2,02 m</Text>{'\n'}
-          • <Text style={styles.bold}>Clube atual: </Text><Text style={styles.highlight}>Savino Del Bene Scandicci</Text> (Itália){'\n'}
+          • <Text style={styles.bold}>Clube atual: </Text><Text style={styles.highlight}>Scandicci</Text>{'\n'}
           • <Text style={styles.bold}>Posição: </Text><Text style={styles.highlight}>Oposta</Text>{'\n'}
-          • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Campeã Olímpica em Paris 2024, Campeã VNL 2025, Campeã Mundial 2025</Text>, <Text style={styles.highlight}>Melhor sacadora Liga dos Campeões 2024/25, Melhor pontuadora Série A1 italiana 2024/25, Melhor sacadora Série A1 italiana 2024/25.</Text>
+           • <Text style={styles.bold}>Conquistas: </Text><Text style={styles.highlight}>Campeã Olímpica em Paris 2024, Campeã VNL 2025, Campeã Mundial 2025,</Text> <Text style={styles.highlight}>Melhor sacadora Liga dos Campeões 2024/25, Melhor pontuadora Série A1 italiana 2024/25, Melhor sacadora Série A1 italiana 2024/25.</Text>
         </Text>
         <TouchableOpacity
           style={styles.linkButton}
-          onPress={() => openLink("https://img.nsctotal.com.br/wp-content/uploads/2025/07/Antropova-4.jpg    ")}
+          onPress={() => openLink("https://img.nsctotal.com.br/wp-content/uploads/2025/07/Antropova-4.jpg")}
         >
           <Text style={styles.linkText}>Ver perfil oficial</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Nota final */}
       <Text style={styles.footer}>
         O voleibol segue evoluindo com novas gerações de atletas que combinam força, técnica e inteligência tática.
         {"\n"}Esses quatro são exemplos de talento, dedicação e paixão pelo esporte — e todos brilham na elite mundial.
@@ -169,45 +171,57 @@ const styles = StyleSheet.create({
     backgroundColor: "#0A1A2F",
   },
   content: {
-    padding: 20,
-    paddingBottom: 40,
+    paddingVertical: Platform.select({ web: 40, default: 20 }),
+    paddingBottom: Platform.select({ web: 60, default: 40 }),
+    alignItems: Platform.select({ web: "center", default: "flex-start" }),
   },
   title: {
-    fontSize: 26,
+    fontSize: Platform.select({ web: 32, default: 26 }),
     fontWeight: "900",
     color: "#E3F2FD",
     textAlign: "center",
-    marginBottom: 20,
-    lineHeight: 32,
+    marginBottom: Platform.select({ web: 28, default: 20 }),
+    lineHeight: Platform.select({ web: 38, default: 32 }),
+    maxWidth: Platform.select({ web: 800, default: "100%" }),
   },
   paragraph: {
-    fontSize: 16,
+    fontSize: Platform.select({ web: 18, default: 16 }),
     color: "#B3E5FC",
-    lineHeight: 24,
-    marginBottom: 24,
+    lineHeight: Platform.select({ web: 26, default: 24 }),
+    marginBottom: Platform.select({ web: 28, default: 24 }),
+    textAlign: "center",
+    maxWidth: Platform.select({ web: 800, default: "100%" }),
   },
   sectionTitle: {
-    fontSize: 22,
+    fontSize: Platform.select({ web: 26, default: 22 }),
     fontWeight: "800",
     color: "#2196F3",
-    marginBottom: 16,
-    marginTop: 20,
+    marginBottom: Platform.select({ web: 22, default: 16 }),
+    marginTop: Platform.select({ web: 28, default: 20 }),
+    textAlign: "center",
   },
   card: {
     backgroundColor: "rgba(33, 150, 243, 0.08)",
     borderRadius: 14,
-    padding: 18,
-    marginBottom: 20,
+    padding: Platform.select({ web: 22, default: 18 }),
+    marginBottom: Platform.select({ web: 24, default: 20 }),
     borderColor: "#2196F3",
     borderWidth: 1,
+    width: Platform.select({ web: "80%", default: "100%" }),
+    maxWidth: Platform.select({ web: 600, default: undefined }),
+    ...Platform.select({
+      web: {
+        boxShadow: "0 6px 16px rgba(33, 150, 243, 0.2)",
+      },
+    }),
   },
   cardTitle: {
-    fontSize: 19,
+    fontSize: Platform.select({ web: 22, default: 19 }),
     fontWeight: "800",
     marginBottom: 8,
   },
   cardText: {
-    fontSize: 15,
+    fontSize: Platform.select({ web: 16, default: 15 }),
     color: "#BBDEFB",
     lineHeight: 22,
   },
@@ -219,51 +233,72 @@ const styles = StyleSheet.create({
     color: "#2196F3",
     fontWeight: "700",
   },
-  playerCard: {
-    backgroundColor: "rgba(10, 26, 47, 0.7)",
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 22,
-    borderWidth: 1,
-    borderColor: "#3949AB",
-  },
+
+  /* ✔ CORREÇÃO DAS IMAGENS AQUI */
   playerImage: {
     width: "100%",
-    height: 220,
-    borderRadius: 16,
-    marginBottom: 12,
-    resizeMode: "cover",
+    height: Platform.select({ web: 350, default: 220 }),
+    borderRadius: Platform.select({ web: 20, default: 16 }),
+    marginBottom: Platform.select({ web: 16, default: 12 }),
+
+    /* NO MOBILE: COVER (igual estava)
+       NO WEB: CONTAIN (pra mostrar o rosto sem cortar) */
+    resizeMode: Platform.select({ web: "contain", default: "cover" }),
+    backgroundColor: "#000",
   },
+
+  playerCard: {
+    backgroundColor: "rgba(10, 26, 47, 0.7)",
+    borderRadius: Platform.select({ web: 20, default: 16 }),
+    padding: Platform.select({ web: 28, default: 20 }),
+    marginBottom: Platform.select({ web: 30, default: 22 }),
+    borderWidth: 1,
+    borderColor: "#3949AB",
+    width: Platform.select({ web: "80%", default: "100%" }),
+    maxWidth: Platform.select({ web: 700, default: undefined }),
+    ...Platform.select({
+      web: {
+        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.35)",
+      },
+    }),
+  },
+
   playerName: {
-    fontSize: 20,
+    fontSize: Platform.select({ web: 24, default: 20 }),
     fontWeight: "800",
     color: "#FF5252",
-    marginBottom: 12,
+    marginBottom: Platform.select({ web: 14, default: 12 }),
   },
   playerInfo: {
-    fontSize: 15,
+    fontSize: Platform.select({ web: 16, default: 15 }),
     color: "#B3E5FC",
-    lineHeight: 22,
-    marginBottom: 12,
+    lineHeight: Platform.select({ web: 24, default: 22 }),
+    marginBottom: Platform.select({ web: 14, default: 12 }),
   },
   linkButton: {
     alignSelf: "flex-start",
     backgroundColor: "rgba(33, 150, 243, 0.2)",
-    paddingHorizontal: 14,
-    paddingVertical: 6,
+    paddingHorizontal: Platform.select({ web: 16, default: 14 }),
+    paddingVertical: Platform.select({ web: 8, default: 6 }),
     borderRadius: 20,
+    ...Platform.select({
+      web: {
+        cursor: "pointer",
+      },
+    }),
   },
   linkText: {
     color: "#2196F3",
-    fontSize: 14,
+    fontSize: Platform.select({ web: 15, default: 14 }),
     fontWeight: "600",
   },
   footer: {
-    fontSize: 15,
+    fontSize: Platform.select({ web: 16, default: 15 }),
     color: "#90CAF9",
-    lineHeight: 22,
-    marginTop: 10,
+    lineHeight: Platform.select({ web: 24, default: 22 }),
+    marginTop: Platform.select({ web: 20, default: 10 }),
     textAlign: "center",
     fontStyle: "italic",
+    maxWidth: Platform.select({ web: 700, default: "100%" }),
   },
 });
